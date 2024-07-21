@@ -1,0 +1,96 @@
+<% layout('../templates/boilerplate') -%>
+<div class="posts mt-5 col-10 offset-1 col-lg-4 offset-lg-4">
+    <div class="card mb-3 border-1">
+        <div class="profile_info ms-3 mt-2">
+            <div class="profile-info">
+                <a href="/user/<%=post.userId._id%>">
+                    <img src="<%=post.userId.profilePicUrl%>" alt="<%= post.userId.username %>" class="post-profile-pic ">
+                </a>
+                <div class="username-date">
+                    <a href="/user/<%=post.userId._id%>">
+                        <p class="username"><%= post.userId.username %></p>
+                    </a>
+                    <p class="post-date"><%= post.time.toLocaleString('en-IN').replace(",", " ") %></p>
+                </div>
+            </div>
+        </div>
+        <div class="card-body">
+            <pre class="card-text"><%= post.caption %></pre>
+        </div>
+        <% if ((post.mediaUrl && post.mediaUrl.length)) { %>
+            <img src="<%= post.mediaUrl %>" class="card-img-bottom" alt="img">
+        <% } %>
+        <div class="show-like-comment mb-0">
+            <p class="like-count mb-0"><i class="fa-solid fa-heart"> </i><%= post.likes %> </p>
+            <p class="comment-count mb-0"><%= post.comments.length %> Comments</p>
+        </div>
+        <div class="like-comment border-top">
+            <% if (user && post.likers.find((v) => v.toString() === user.id)) { %>                    
+                <button class="like btn border liked" id="<%= post.id %>"><i class="fa-solid fa-heart"></i> Liked</button>
+            <% } else {%>
+                <button class="like btn border" id="<%= post.id %>"><i class="fa-regular fa-heart"></i> Like</button>
+            <% } %>
+            <a class="comment btn border" href="/posts/<%= post._id %>"><i class="fa-regular fa-comment"></i> Comment</a>
+        </div>
+    </div>
+    <% if (post.userId.id == user.id) { %>
+        <div class="col edit-delete-btn d-flex justify-content-end">
+            <!-- <form method="POST" action="/posts/<%= post.id %>?_method=PUT" class="edit ms-auto"> -->
+                <a class="btn btn-md btn-primary" href="/posts/<%= post._id %>/edit" class="ms-auto"><i class="fa-solid fa-pen-to-square"></i> Edit</a>
+            <!-- </form> -->
+            <form method="POST" action="/posts/<%= post.id %>?_method=DELETE" class="delete ms-2">
+                <button class="btn btn-md btn-danger"><i class="fa-solid fa-trash-can-arrow-up"></i> Delete</button>
+            </form>
+            
+        </div>
+    <% } %>
+
+    <% if (post.comments.length) { %>
+    <hr>
+    <h4 class="fw-bold">Comments</h4>
+    <div class="comments">
+        <% for(comment of comments) {%>
+            <div class="card mb-3 border-1 comment">
+                <div class="profile_info ms-3 mt-2">
+                    <div class="profile-info">
+                        <img src="<%=comment.user.profilePicUrl%>" alt="<%= comment.user.username %>">
+                        <div class="username-date">
+                            <a href="/user/<%=comment.user.id%>">
+                                <p class="username"><%= comment.user.username %></p>
+                            </a>
+                            <p class="post-date"><%= comment.commentTime.toLocaleString('en-IN').replace(",", " ") %></p>
+                        </div>
+                        <div class="comment-like-btn">
+                            <button class="btn comment-like" id="<%= comment.id %>"><i class="fa-regular fa-heart"></i></button>
+                            <p class="comment-like-count"><%= comment.likes %></p>
+                        </div>
+                        <% if (comment.user.id == user.id) { %>
+                            <div class="comment-delete-btn">
+                                <form method=POST action="/posts/comment/delete/<%= comment.id %>?_method=DELETE">
+                                    <button class="btn comment-delete btn-sm btn-danger rounded rounded-circle"><i class="fa-solid fa-trash-can-arrow-up" type="submit"></i></button>
+                                </form>
+                            </div>
+                        <% } %>
+                    </div>
+                    <div class="card-body comment-body">
+                        <pre class="comment-text"><%= comment.content %></pre>
+                    </div>
+                </div>
+            </div>
+        <% }%>
+    </div>
+    <% } %>
+    <hr>
+    <h4 class="fw-bold">Add your comment</h4>
+    <form action="/posts/comment/<%= post.id %>" class="border p-2 mb-3 form-comment needs-validation" method="POST" novalidate>
+        <div class="mb-3">
+            <textarea class="form-control" id="comment" rows="3" name="comment" placeholder="Enter your comment here" required></textarea>
+            <div class="invalid-feedback">
+                Please enter the comment
+            </div>
+        </div>
+        <div class="comment-btn">
+              <button class="btn btn-primary btn-sm comment-btn" type="submit">Send <i class="fa-solid fa-paper-plane"></i></button>
+        </div>
+    </form>
+</div>

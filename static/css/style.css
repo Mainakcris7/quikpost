@@ -1,0 +1,263 @@
+@import url('https://fonts.googleapis.com/css2?family=Mukta:wght@200;300;400;500;600;700;800&display=swap');
+
+:root{
+    --nav-link-active: rgb(0, 123, 255);
+    --liked-btn-color: rgb(255, 0, 93);
+}
+*{
+    font-family: "Mukta", sans-serif;
+}
+p{
+    margin-bottom: 0;
+}
+pre {
+    white-space: pre-wrap;       /* Since CSS 2.1 */
+    white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+    white-space: -pre-wrap;      /* Opera 4-6 */
+    white-space: -o-pre-wrap;    /* Opera 7 */
+    word-wrap: break-word;       /* Internet Explorer 5.5+ */
+    font-family:"Mukta", sans-serif !important ;
+    overflow: hidden;
+    font-size: 1rem;
+}
+
+body{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+/* Flash */
+i.flash-icon{
+    margin-right: 1rem;
+}
+/* Navbar */
+img.d-inline-block{
+    width: 30px;
+    height: 30px;
+    margin-right: 8px;
+}
+div.user-profile-nav{
+    /* margin-left: auto; */
+    width: 45px;
+    display: flex;
+    aspect-ratio: 1/1;
+    justify-content: center;
+    align-items: center;
+    right: 1.5rem;
+    position: absolute;
+    overflow: hidden;
+    transition: 0.1s ease-out;
+}
+div.user-profile-nav:hover{
+    border: 1px solid rgba(0, 0, 0, 0.34) !important;
+}
+img.user-profile-logo-nav{
+    width: 45px;
+    height: 45px;
+    background-color: rgba(61, 60, 60, 0.868);
+    object-fit: contain;
+}
+label{
+    font-weight: 500;
+}
+div.profile-info img{
+    width: 2rem;
+    aspect-ratio: 1/1;
+    object-fit: contain;
+    background-color: rgb(45 43 43 / 87%);
+    border-radius: 50%;
+    margin-right: 7px;
+}
+div.login-signup{
+    right: 1.5rem;
+    position: absolute;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+div.login-signup > a{
+    padding: 0.2rem 0.8rem;
+}
+div.login-signup > a:nth-child(1){
+    margin-right: 1rem;
+}
+a.navbar-brand{
+    display: flex;
+    align-items: center;
+}
+nav.navbar{
+    padding: 15px 1.5rem;
+    background-color: white;
+}
+a.nav-link{
+    padding: 5px 10px !important;
+    border-radius: 5px;
+    margin-right: 0.5rem;
+    border: none !important;
+    font-size: 1rem;
+}
+
+a.nav-link:hover{
+    background-color: rgb(216, 237, 255);
+    border: none;
+    color: var(--nav-link-active);
+}
+a.nav-link.active{
+    color: var(--nav-link-active) !important;
+    background-color: rgb(216, 237, 255);
+    font-weight: bold;
+    outline: 1px solid rgb(0, 115, 255);
+    border: none;
+}
+
+div.container{
+    flex: 1;  
+}
+div.card{
+    background-color: rgba(209, 241, 255, 0.137);
+}
+div.card-body{
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+div.card-body.comment-body{
+    padding: 0;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+div.profile-info{
+    display: flex;
+    align-items: center;
+}
+div.username-date{
+    display: flex;
+    flex-direction: column;
+}
+p.username{
+    position: relative;
+    top: 1px;
+    font-size: 1rem;
+}
+p.post-date{
+    margin: 0;
+    font-weight: 300;
+    position: relative;
+    bottom: 2px;
+    font-size: 0.7rem;
+}
+img.card-img-bottom{
+    border-bottom-right-radius: 0 !important;
+    border-bottom-left-radius: 0 !important;
+}
+img.card-img-bottom:hover{
+    opacity: 0.85;
+}
+div.card a{
+    text-decoration: none;
+    color: black;
+}
+
+div.profile-info a{
+    font-weight: 500;
+}
+div.profile-info .post-profile-pic{
+    width: 2.5rem;
+    aspect-ratio: 1/1;
+    object-fit: contain;
+    background-color: rgb(45 43 43 / 87%);
+    border-radius: 50%;
+    margin-right: 7px;
+}
+div.show-like-comment{
+    padding: 0.5rem 1rem;
+}
+div.show-like-comment p.like-count i{
+    color: var(--liked-btn-color);
+    margin-right: 5px;
+}
+div.like-comment, div.show-like-comment{
+    display: flex;
+    justify-content: space-between;
+}
+div.like-comment button,div.like-comment a{
+    flex: 1;
+    border-radius: 0;
+}
+div.like-comment button.like{
+    border-bottom-left-radius: 0.375rem;
+}
+div.like-comment a.comment{
+    border-bottom-right-radius: 0.375rem;
+}
+button.liked i{
+    color: var(--liked-btn-color);
+}
+div.comments div.card{
+    padding-right: 1rem;
+}
+div.comments pre.comment-text{
+    margin-bottom: 0.3rem !important;
+}
+p.comment-like-count{
+    margin-left: 5px;
+    font-size: 0.85rem;
+    margin: 0;
+    text-align: center;
+}
+div.comments div.comment-like-btn{
+    margin-left: auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+div.comments div.comment-like-btn button.comment-like{
+    width: 30px;
+    aspect-ratio: 1/1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid rgba(0, 0, 0, 0.242);
+    padding: 0;
+    border-radius: 50%;
+}
+div.comments div.comment-delete-btn button{
+    position: relative;
+    bottom: 10px;
+    margin-left: 10px;
+    color: white !important;
+}
+button.comment-like.liked i{
+    color: rgb(255, 0, 93);
+}
+div.comment{
+    border-bottom-right-radius: 0;
+    background-color: rgba(253, 233, 206, 0.642);
+}
+form.form-comment{
+    border-radius: 0.375rem;
+}
+div.comment-btn{
+    width: 100%;
+    display: flex;
+    flex-direction: row-reverse;
+}
+div.edit-delete-btn button, div.edit-delete-btn a{
+    padding: .2rem .7rem;
+}
+
+/* Signup page  */
+.required::after{
+    content: '*';
+    color:rgb(222, 2, 2);
+    position: relative;
+    top: 2px;
+    left: 2px;
+    font-size: 1.1rem;
+}
+/* Footer  */
+footer{
+    padding: 1rem;
+}

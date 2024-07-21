@@ -1,0 +1,56 @@
+<% layout('../templates/boilerplate') -%>
+<h1 id="login" class="text-center">Edit details</h1>
+<form class="col-10 offset-1 mt-3 col-lg-6 offset-lg-3 border border-2 rounded p-4 mb-3 needs-validation" action="/user/<%= userDetails.id %>?_method=PUT" method="POST" id="signup-form" novalidate enctype="multipart/form-data">
+    <div class="mb-3">
+        <label for="username" class="form-label required">Full name</label>
+        <input type="text" class="form-control" id="username" name="username" value=<%= userDetails.username %> required></input>
+        <div class="invalid-feedback">
+          Your name is required
+        </div>
+    </div>
+    <div class="mb-3">
+        <label for="about" class="form-label">About yourself</label>
+        <textarea type="text" class="form-control" id="about" name="about"><%= userDetails.about %></textarea>
+    </div>
+    <div class="mb-3">
+      <select class="form-select required" aria-label="Gender" name="gender" required>
+        <option selected value="">Your gender</option>
+        <% if (userDetails.gender == "male") { %>
+            <option value="male" selected>Male</option>
+            <option value="female">Female</option>
+            <option value="others">Others</option>
+        <% } else if((userDetails.gender == "female")){%>
+            <option value="male">Male</option>
+            <option value="female" selected>Female</option>
+            <option value="others">Others</option>
+        <% } else { %>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="others" selected>Others</option>
+        <% } %>
+         
+      </select>
+      <div class="invalid-feedback">
+        Your gender is required
+      </div>
+    </div>
+    <div class="mb-3">
+        <label for="dob" class="form-label required">Your date of birth</label>
+        <input type="date" class="form-control" placeholder="abc@xyz.com" id="dob" name="dob" value=<%= userDetails.dob.getFullYear()+"-"+(userDetails.dob.getMonth()+1) +"-"+userDetails.dob.getDate()%> required></input>
+        <div class="invalid-feedback">
+          Your date of birth is required
+        </div>
+    </div>
+    <div class="mb-3">
+        <label for="address" class="form-label required">Your address</label>
+        <textarea class="form-control" id="address" name="address" required><%= userDetails.address %></textarea>
+        <div class="invalid-feedback">
+            Your address is required
+        </div>
+    </div>
+    <div class="mb-3">
+      <label for="profilePic" class="form-label">Choose profile picture</label>
+      <input type="file" name="profilePicUrl" id="profilePic" class="form-control" accept="image/*">
+    </div>
+    <button class="btn btn-primary" id="signup-form-btn">Submit</button>
+</form>

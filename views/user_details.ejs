@@ -1,0 +1,37 @@
+<% layout('../templates/boilerplate') -%>
+<div class="row mt-3 border border-2 col-lg-6 offset-lg-3 p-3 rounded user-profile-div">
+    <div class="profile-header">
+        <img src="<%= showUser.profilePicUrl %>" alt="profile-pic" class="rounded rounded-circle border border-2" id="user-profile-pic">
+        <h3 id="username" style="font-weight: bold; margin-top: 1rem;"><%= showUser.username %></h3>
+        <% if (showUser.about) { %>
+            <pre id="about"><i class="fa-solid fa-circle-info"></i> <%= showUser.about %></pre>
+        <% } %>
+    </div>
+    <div class="profile-body">
+        <p id="user-email"><i class="fa-solid fa-envelope"></i><%= showUser.email %></p>
+        <p id="address"><i class="fa-solid fa-location-dot"></i><%= showUser.address %></p>
+        <p id="dob"><i class="fa-solid fa-cake-candles"></i>Date of birth: <%= showUser.dob.getDate()+"/"+(showUser.dob.getMonth()+1)+"/"+showUser.dob.getFullYear() %></p>
+        <p id="created-on"><i class="fa-solid fa-calendar-plus"></i>Account created on: <%= showUser.createdOn.toLocaleString('en-In')  %></p>
+        <p class="follower-count" id="follower-count-<%= showUser.id %>"><i class="fa-solid fa-user-group"></i>Followed by <%= showUser.followerCount %> people</p>
+        <div class="followers-div mt-1">
+            <% if (showUser.followers.find(v => v.toString() === user.id)) { %>
+                <button class="btn btn-primary follow-btn followed" id="<%= showUser.id %>"><i class="fa-solid fa-check"></i>Following</button>
+            <% }else if(showUser.id === user.id) {%>
+            <% }else{ %>
+                <button class="btn btn-primary follow-btn" id="<%= showUser.id %>"><i class="fa-solid fa-user-plus"></i>Follow</button>
+            <% } %>
+        </div>
+        <% if(showUser.id === user.id) { %>
+            <div class="logout-edit">
+                <a href="/user/<%= showUser.id %>/edit" class="btn btn-primary" id="edit"><i class="fa-solid fa-user-pen"></i>Edit</a>
+                <a href="/logout" class="btn btn-danger" id="logout">Log out <i class="fa-solid fa-arrow-right-from-bracket"></i></a>
+            </div>
+        <% } %>
+    </div>
+</div>
+<% if (allPosts.length > 0) { %>
+    <h4 class="mt-4 col-lg-6 offset-lg-3 text-center">Posts by <span id="uname-post" style="font-weight: bold;"><%= showUser.username %></span></h4>
+    <%- include("../views/home.ejs") %>
+<% } else {%>
+    <h4 class="mt-4 col-lg-6 offset-lg-3 text-center">No <span class="fw-bold">posts</span> to show <i class="fa-solid fa-face-sad-tear"></i></h4>
+<% } %>

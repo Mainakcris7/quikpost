@@ -1,0 +1,80 @@
+div.user-profile-div{
+    background-color: aliceblue;
+    position: relative;
+}
+
+div.profile-header img#user-profile-pic{
+    width: 120px;
+    background-color: rgb(37, 37, 37);
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    object-fit: contain;
+}
+pre#about{
+    margin-bottom: 0;
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.8rem;
+}
+div.user-profile-div .profile-body p{
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.8rem;
+}
+div.user-profile-div .profile-body i{
+    margin-right: 5px;
+}
+button.followed{
+    background-color: rgb(168, 245, 176);
+    border: 2px solid rgb(13, 228, 35);
+    color: rgb(15, 135, 2);
+}
+button.followed:hover{
+    background-color: rgb(147, 243, 157);
+    border: 2px solid rgb(13, 228, 35);
+    color: rgb(15, 135, 2);
+}
+div.followers-div{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    right: 5%;
+    top: 1rem;
+    gap: 0.65rem;
+    padding: .2rem .7rem;
+}
+div.followers-div button{
+    padding: .2rem .7rem;
+}
+input#login-password{
+    padding: .3rem .75rem;
+    font-size: 1.35rem !important;
+    letter-spacing: 1.5px !important;
+}
+input[id$="password"]{
+    padding: .3rem .75rem;
+    font-size: 1.35rem !important;
+    letter-spacing: 1.5px !important;
+}
+
+div#login-password-div{
+    position: relative;
+}
+p.show-password{
+    position: absolute;
+    cursor: pointer;
+    background-color: white;
+    top:2.6rem;
+    right: 10px
+}
+div.logout-edit{
+    position: absolute;
+    display: flex;
+    right: 5%;
+    top: 1rem;
+    gap: 0.65rem;
+    padding: .2rem .7rem;
+}
+div.logout-edit a{
+    padding: .2rem .7rem;
+}

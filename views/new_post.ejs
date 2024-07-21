@@ -1,0 +1,16 @@
+<% layout('../templates/boilerplate') -%>
+<h1 id="new_post">Create new post</h1>
+<form class="col-10 offset-1 mt-3 col-lg-6 offset-lg-3 border border-2 rounded p-4 mb-3 needs-validation" action="/posts/create" method="POST" novalidate enctype="multipart/form-data">
+    <div class="mb-3">
+      <label for="caption" class="form-label required">Caption</label>
+      <textarea name="items[caption]" id="caption" class="form-control" placeholder="Enter your post caption here" required></textarea>
+      <div class="invalid-feedback">
+        Please add a caption
+      </div>
+    </div>
+    <div class="mb-3" id="media-div">
+      <label for="formFile" class="form-label">Choose image</label>
+      <input class="form-control" type="file" id="formFile" name="items[mediaUrl]" accept="image/*">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>

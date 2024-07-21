@@ -1,0 +1,55 @@
+@media screen and (max-width: 576px) {
+    .mobile{
+        display: none;
+    }
+    div.navbar-fluid{
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+    .navbar{
+        padding: 0.5rem !important;
+    }
+    .navbar-collapse{
+        padding-top: 0.85rem;
+    }
+    div.card{
+        width: 80vw;
+    }
+    div.user-profile-nav{
+        top: 0.5rem;
+        right: 4.7rem;
+        height: 2.2rem;
+        width: 2.2rem;
+        margin-top: 0.2rem;
+    }
+    div.user-profile-nav img{
+        width: 2.1rem;
+        height: 2.1rem;
+    }
+    div.profile-info .post-profile-pic{
+        width: 2.2rem;
+    }
+    div.logout-edit{
+        flex-direction: column;
+    }
+    div.user-profile-div{
+        width: 100%;
+        margin: auto;
+    }
+    img#user-profile-pic{
+        width: 5.5rem;
+    }
+    div.login-signup{
+        top: 0.8rem;
+        right: 4.7rem;
+    }
+    div.login-signup > a:nth-child(1) {
+        margin-right: 0.5rem;
+    }
+}
+
+@media screen and (max-width: 991px) {
+    div.posts{
+        width: 85%;
+    }
+}

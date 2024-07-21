@@ -1,0 +1,9 @@
+h1#new_post{
+    text-align: center;
+    margin-top: 1rem;
+    font-weight: bold;
+}
+h1{
+    font-weight: bold;
+    text-transform: none;
+}

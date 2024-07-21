@@ -1,0 +1,21 @@
+<% layout('../templates/boilerplate') -%>
+<h1 id="login" style="text-align: center;">Login</h1>
+<form class="col-10 offset-1 mt-3 col-lg-6 offset-lg-3 border border-2 rounded p-4 mb-3 needs-validation" action="/login" method="POST" novalidate>
+    <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" class="form-control" placeholder="john@gmail.com" id="email" name="email" required></input>
+        <div class="invalid-feedback">
+          Email is required
+        </div>
+    </div>
+    <div class="mb-3" id="login-password-div">
+        <label for="login-password" class="form-label">Password</label>
+        <input type="password" class="form-control" name="password" id="login-password" required>
+        </input>
+        <p class="show-password"><i class="fa-solid fa-eye"></i></p>
+        <div class="invalid-feedback">
+          Password is required
+        </div>
+    </div>
+    <button class="btn btn-primary d-flex align-items-center gap-1" type="submit">Login <i class="fa-solid fa-arrow-right-to-bracket"></i></button>
+</form>

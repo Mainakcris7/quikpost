@@ -1,0 +1,41 @@
+<% layout('../templates/boilerplate') -%>
+<div class="posts mt-<%= mt %> col-8 offset-1 col-lg-4 offset-lg-4">
+    <% for(post of allPosts) {%>
+        <div class="card mb-4 border-1">
+            <div class="profile_info ms-3 mt-2">
+                <div class="profile-info">
+                    <a href="/user/<%=post.userId._id%>">
+                        <img src="<%=post.userId.profilePicUrl%>" alt="<%= post.userId.username %>" class="post-profile-pic ">
+                    </a>
+                    <div class="username-date">
+                        <a href="/user/<%=post.userId._id%>">
+                            <p class="username"><%= post.userId.username %></p>
+                        </a>
+                        <p class="post-date"><%= post.time.toLocaleString('en-IN').replace(",", " ") %></p>
+
+                    </div>
+                </div>
+            </div>
+            <a href="/posts/<%= post._id %>">
+            <div class="card-body">
+                <pre class="card-text"><%= post.caption %></pre>
+            </div>
+            <% if ((post.mediaUrl && post.mediaUrl.length)) { %>
+                <img src="<%= post.mediaUrl %>" class="card-img-bottom" alt="img">
+            <% } %>
+            </a>
+                <div class="show-like-comment mb-0 border-top">
+                    <p class="like-count mb-0"><i class="fa-solid fa-heart"> </i><%= post.likes %> </p>
+                    <p class="comment-count mb-0"><%= post.comments.length %> Comments</p>
+                </div>
+                <div class="like-comment border-top">
+                    <% if (user && post.likers.find((v) => v.toString() === user.id)) { %>                    
+                        <button class="like btn border liked" id="<%= post.id %>"><i class="fa-solid fa-heart"></i> Liked</button>
+                    <% } else {%>
+                        <button class="like btn border" id="<%= post.id %>"><i class="fa-regular fa-heart"></i> Like</button>
+                    <% } %>
+                    <a class="comment btn border" href="/posts/<%= post._id %>"><i class="fa-regular fa-comment"></i> Comment</a>
+                </div>
+            </div>
+    <% } %>
+</div>
