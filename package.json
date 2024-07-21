@@ -1,10 +1,10 @@
 {
-  "engines":{
+  "engines": {
     "node": "18.5.0"
   },
-  "name": "social-media-app",
+  "name": "quikpost",
   "version": "1.0.0",
-  "description": "",
+  "description": "Social media app created with Node.js",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -23,6 +23,8 @@
     "method-override": "^3.0.0",
     "mongoose": "^8.3.4",
     "multer": "^1.4.5-lts.1",
-    "multer-storage-cloudinary": "^4.0.0"
+    "multer-storage-cloudinary": "^4.0.0",
+    "passport": "^0.7.0",
+    "passport-local": "^1.0.0"
   }
 }
